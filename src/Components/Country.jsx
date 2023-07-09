@@ -8,7 +8,7 @@ export const Country = () => {
   const selectedContinent  = state.allData.filter(conti => conti.name===continent)
   useEffect(()=>{
     dispatch({type : "SET_CONTINENT", payload  : continent})
-  },[continent])
+  },[])
   return (
     <>
       <h3>Top {continent}an Countries for your next holiday</h3>
@@ -24,7 +24,7 @@ export const Country = () => {
         {selectedContinent[0].countries.map((country) => {
           return (
             <li key={country.id}>
-              <NavLink to={`/cities/${country.name}`} >
+              <NavLink to={`/cities/${country.name}`}>
                 <img src={country.image} alt="" width={280} />
                 <h4>{country.name}</h4>
               </NavLink>

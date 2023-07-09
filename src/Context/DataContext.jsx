@@ -563,13 +563,14 @@ const data = {
 const handleData = (state, action) => {
     switch (action.type) {
         case "SET_CONTINENT" : return {...state, currentContinent : action.payload}
+        case "SET_COUNTRY" : return {...state, currentCountry : action.payload}
         default : return state
     }
 }
 
 export const DataContext = createContext()
 export const DataProvider = ({children}) => {
-    const [state, dispatch] = useReducer(handleData, {allData : data.continents, currentContinent : ""})
+    const [state, dispatch] = useReducer(handleData, {allData : data.continents, currentContinent : "", currentCountry : ""})
     return (
         <DataContext.Provider value={{state, dispatch}}>
             {children}
